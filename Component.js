@@ -26,7 +26,7 @@ sap.ui.define([
 			//Get Username
 			var uname = sap.ushell.Container.getUser().getFullName();
 			var text2 = "Welcome, " + uname;
-			
+			/*
 			//Get cookie context
 			var qk = document.cookie.split(";");
 			//console.log(qk);
@@ -42,9 +42,9 @@ sap.ui.define([
 			
 			//Get client and username;
 			var text4 = text3 + " | " + uname;
-			
+			*/
 			rendererPromise.then(function (oRenderer) {
-				oRenderer.setHeaderTitle(text3);
+				oRenderer.setHeaderTitle(text2);
 			});
 
 			/**
