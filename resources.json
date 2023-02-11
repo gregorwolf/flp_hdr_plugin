@@ -45,6 +45,10 @@
             "name": "package.json"
         },
         {
+            "name": "resources.json",
+            "merged": true
+        },
+        {
             "name": "sap-ui-cachebuster-info.json"
         }
     ]
