@@ -13,3 +13,6 @@ AppVariant_index.html
 APIExternalProducer.js
 .*/APIExternalProducer.js
 /dist/
+/mta_archives/
+AppVariantPreviewPayload.zip
+mergedManifestDescriptor.json
