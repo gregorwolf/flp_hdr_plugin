@@ -15,51 +15,33 @@ sap.ui.define([
 			var rendererPromise = this._getRenderer();
 
 			// This is example code. Please replace with your implementation!
-			
+
 			//Get Date
 			var today = new Date();
 			var dd = today.getDate();
 			var mm = today.getMonth();
 			var yyyy = today.getFullYear();
 			var text1 = dd.toString() + "/" + mm.toString() + "/" + yyyy.toString();
-			
+
 			//Get Username
 			var uname = sap.ushell.Container.getUser().getFullName();
-			var text2 = "Welcome, " + uname;
-			/*
-			//Get cookie context
-			var qk = document.cookie.split(";");
-			//console.log(qk);
-			//var qk1 = qk[0].split("sap-usercontext=");
-			//console.log(qk1);
-			var qk2 = qk[0].split("&");
-			//console.log(qk2);
-			var qk3 = qk2[1].split("sap-client=");
-			//console.log(qk3);
-			var clnt = qk3[1].toString();
-			//console.log(clnt);
-			var text3 = "Client: " + clnt;
-			
-			//Get client and username;
-			var text4 = text3 + " | " + uname;
-			*/
+			var hostname = window.location.hostname;
+			// flpnwc-y61gue3yph = Dev
+			// flpnwc-w30fet5zj0 QA
+			// webidetesting... Web IDE
+			var greeting = "";
+			if (hostname.match(/webidetesting/gm) !== null) {
+				greeting = "Web IDE Test Runtime";
+			} else if (hostname.match(/flpnwc-y61gue3yph/gm) !== null) {
+				greeting = "Development System";
+			} else if (hostname.match(/flpnwc-w30fet5zj0/gm) !== null) {
+				greeting = "QA System";
+			}
+			var text2 = greeting;
+			// var text2 = "Welcome, " + uname + " to " + hostname;
 			rendererPromise.then(function (oRenderer) {
 				oRenderer.setHeaderTitle(text2);
 			});
-
-			/**
-			 * Add item to the header
-			 */
-/*			rendererPromise.then(function (oRenderer) {
-				oRenderer.addHeaderItem({
-					icon: "sap-icon://add",
-					tooltip: "Add bookmark",
-					press: function () {
-						MessageToast.show("This SAP Fiori Launchpad has been extended to improve your experience");
-					}
-				}, true, true);
-			});*/
-
 		},
 
 		/**
